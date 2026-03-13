@@ -21,6 +21,34 @@ const createNotification = async (data) => {
     }
 };
 
+const getAllNotifications = async (data) => {
+    try{
+       const tickets = await Ticket.find({}); 
+       return tickets; 
+    }
+    catch(error){
+        throw error;
+    }
+};
+
+const getNotificationById = async (id) => {
+    try{
+       const ticket = await Ticket.findById(id);
+        if(!ticket){
+            throw {
+                err: "No ticket for partcular id found",
+                code: STATUS.NOT_FOUND
+            }
+        }
+       return ticket; 
+    }
+    catch(error){
+        throw error;
+    }
+};
+
 module.exports = {
-    createNotification
+    createNotification,
+    getAllNotifications,
+    getNotificationById
 }

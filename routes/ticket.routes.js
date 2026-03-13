@@ -6,6 +6,12 @@ const routes = (app) => {
         ticketMiddleware.verifyNotificationCreateRequest,
         ticketController.createTicket
     );
+    app.get("/notiservice/api/v1/notifications",
+        ticketController.getAllTickets
+    );
+    app.get("/notiservice/api/v1/notifications/:ticketId",
+        ticketController.getTicketById
+    );
 };
 
 module.exports = routes;
