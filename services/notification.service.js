@@ -33,7 +33,7 @@ const getAllNotifications = async (data) => {
 
 const getNotificationById = async (id) => {
     try{
-       const ticket = await Ticket.findById(id);
+        const ticket = await Ticket.findById(id);
         if(!ticket){
             throw {
                 err: "No ticket for partcular id found",
